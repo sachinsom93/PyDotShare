@@ -8,7 +8,7 @@ const handleClick = text => {
 function LoginProviderBtn({logoImage, text}) {
     return (
         <div className={styles.container} onClick={() => handleClick(text)}>
-            <img 
+            <img
                 src={logoImage} 
                 className={styles.image}   
                 alt="wait"
