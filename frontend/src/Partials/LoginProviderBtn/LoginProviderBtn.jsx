@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './LoginProviderBtn.module.css';
 
 const handleClick = text => {
-    console.log(text.toLowerCase())
+    window.open(`http://localhost:8000/auth/${text.toLowerCase()}`, '_self')
 }
 
 function LoginProviderBtn({logoImage, text}) {
