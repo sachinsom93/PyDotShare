@@ -12,9 +12,18 @@ const LoginForm = () => {
         <div className={styles.container}>
             <h1>Login</h1>
             <h4>Login with your media account</h4>
-            <LoginProviderBtn logoImage={GoogleLogo} text='Google'/>
-            <LoginProviderBtn logoImage={FBLogo} text='Facebook'/>
-            <LoginProviderBtn logoImage={GithubLogo} text='Github'/>
+            <LoginProviderBtn 
+                logoImage={GoogleLogo} 
+                text='Google'
+            />
+            <LoginProviderBtn 
+                logoImage={FBLogo} 
+                text='Facebook'
+            />
+            <LoginProviderBtn 
+                logoImage={GithubLogo} 
+                text='Github'
+            />
         </div>
     )
 }
