@@ -1,0 +1,17 @@
+.container{
+    width: 100vw;
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.heading{
+    margin: 0;
+    margin-bottom: 2em;
+    color: gray;
+}
