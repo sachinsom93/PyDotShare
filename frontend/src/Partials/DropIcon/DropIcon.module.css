@@ -1,0 +1,24 @@
+.container{
+    width: 55px;
+    height: 55px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 2em;
+    transition: all .6s;
+    box-shadow: 4px 2px 5px 0px #afaeae;
+}
+
+.icon{
+    text-decoration: none;
+    color: black;
+}
+@media screen and (min-width: 720px){
+    .container{
+        display: none;
+    }
+}

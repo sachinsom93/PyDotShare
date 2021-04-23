@@ -1,7 +1,9 @@
 import {SET_USER} from '../types/user';
+
 const initialState = {
     user: {},
     darkTheme: false,
+    showMenu: false
 }
 
 
