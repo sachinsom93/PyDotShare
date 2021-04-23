@@ -5,6 +5,7 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import HomePage from './Pages/HomePage/HomePage';
 import Contact from './Pages/Contact/Contact';
 import Profile from './Pages/Profile/Profile';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Profile />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   )  
 }
