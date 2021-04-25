@@ -9,8 +9,6 @@ function Navbar() {
     // state variables
     const [showMenu, setShowMenu] = useState(false);
 
-
-
     // handler methods
     function handleClick(){
         setShowMenu((prev) => {

@@ -1,20 +1,35 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+import { getCookie } from '../../utils/getCookie';
 import styles from './HomePage.module.css';
 
 function HomePage() {
 
-    useEffect(() => {
-        fetch('http://localhost:8000/user/profile')
-            .then(res => {
-                console.log(res)
-                console.log(res.data)
-            })
-    }, []) 
+    const [user, setUser] = useState({})
 
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/user/profile', {
+                headers: {
+                    method: 'GET',
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                    'Authorization': 'Bearer '+ getCookie('x-auth-cookie')
+                }
+            })
+            if(res.ok){
+                const jsonRes = await res.json()
+                console.log(jsonRes)
+                setUser(jsonRes)
+            } else{
+                console.log('HTTP-Error: ', res.status)
+            }
+        }
+        fetchData()
+    }, []) 
 
     return (
         <div className={styles.HomePage}>
-            <span>HomePage</span>
+            {user.name}
         </div>
     )
 }

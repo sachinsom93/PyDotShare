@@ -1,14 +1,13 @@
 const express = require('express');
-const app = express();
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-const cors = require('cors');
-const session = require('express-session');
 const passport = require('passport');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
 const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
+const app = express();
+
+
 // configure ENV
 dotenv.config()
 
@@ -18,68 +17,47 @@ if(process.env.NODE_ENV == 'development'){
     app.use(morgan('dev'))
 }
 
-// mongo config
-
 // PORT 
 const PORT = process.env.PORT || 8000;
 
-// Middleware
-app.use(express.urlencoded({ extended: false}))
+
+// BodyParser middlewares
 app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
-}))
+app.use(express.urlencoded({ extended: false}))
 
-// express-session
-app.use(
-    session({
-        secret: 'sachinsom',
-        resave: true,
-        saveUninitialized: true,
-        // cookie: {
-            //     sameSite: 'strict',
-            //     secure: true,
-            //     maxAge: 1000 * 60 * 60 * 24 * 7, // One Week
-            // }
-    })
-);
-app.use(cookieParser('secret code'))
-// Passport 
+
+// Passport config
 app.use(passport.initialize());
-app.use(passport.session());
+require('./services/jwtStrategy');
+require('./services/googleStrategy');
+require('./services/githubStrategy');
 
-// passport config
-require('./config/passport')(passport)
-
-// routes
-app.use('/user', userRoute)
-app.use('/auth', authRoute)
-
-
-// Listen server
-require('./config/db')
-
-
-// mongo connection options 
+// connect to mongo
 const mongoOPtions = {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: true
 }
-
-// mongo and server listening
-mongoose.connect(process.env.MONGO_URI, mongoOPtions,(err) => {
+mongoose.connect(process.env.MONGO_URI, mongoOPtions, (err) => {
     if(err){
-        console.log(`Error in Mongo Connection: `, err.message)
+        console.log(err)
     } else{
-        app.listen(PORT, (err) => {
-            if(err){
-                console.log(`Error in server: ${err.message}`)
-            }
-            else{
-                console.log(`Server listening on port.`)
-                console.log(`Please Visit http://localhost:${PORT}/`)
-            }
-        })
+        console.log('mongo connected...')
     }
-})
+});
+
+
+// routes
+app.use('/auth', authRoute)
+app.use('/user', userRoute)
+
+
+// App listening
+app.listen(PORT, (err) => {
+    if(err){
+        console.log(err)
+    } else{
+        console.log(`server listening on port: ${PORT}`)
+    }
+});
