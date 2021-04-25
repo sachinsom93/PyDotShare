@@ -1,35 +1,32 @@
-const passport = require('passport')
 const router = require('express').Router();
+const passport = require('passport');
 
 
-// auth route for google
-router.get('/google', passport.authenticate('google', { scope: ['profile']}))
-
-
-// callback route for google
-router.get('/google/callback', 
+// Google auth
+router.get(
+    '/google',
     passport.authenticate('google', {
-        successRedirect: `http://localhost:3000/auth`,
-        failureRedirect: `http://localhost:3000/auth`,
-        session: true
+        scope: ['profile', 'email']
     })
 )
 
+// Client route
+const clientUrl = process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL_PROD : process.env.CLIENT_URL_DEV
 
-// auth route for github
-router.get('/github', passport.authenticate('github', { scope: ['profile']}))
 
-// callback route for github
-router.get('/github/callback', 
-    passport.authenticate('github', {failureRedirect: `${process.env.USER_CLIENT_BASE_URL}/auth`, session: true}),
+// Google auth callback
+router.get(
+    '/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/',
+        session: false
+    }),
     (req, res) => {
-    req.logIn(req.user, (err) => {
-        if(err){
-            console.log(err)
-        } else{
-            return res.redirect(`${process.env.USER_CLIENT_BASE_URL}/home`)
-        }
-    })
-})
+        console.log(clientUrl)
+        const token = req.user.generateJWT()
+        res.cookie('x-auth-cookie', token)
+        res.redirect('http://localhost:3000/auth')
+    },
+)
 
 module.exports = router

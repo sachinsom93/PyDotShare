@@ -1,18 +1,13 @@
+const requireJwtAuth = require('../middleware/requireJwtAuth');
+
 const router = require('express').Router();
 
-router.get('/profile', (req, res) => {
-    console.log(req.user)
-    if(req.user){
-        return res.status(200).json({
-            success: true, 
-            msg: user
-        })
-    } else{
-        return res.status(400).json({
-            success: false,
-            msg: 'User not authorized'
-        })
-    }
+router.get('/profile', requireJwtAuth,(req, res) => {
+    const user = req.user.toJSON();
+    return res.status(200).send({
+        success: true,
+        msg: user
+    })
 })
 
 
