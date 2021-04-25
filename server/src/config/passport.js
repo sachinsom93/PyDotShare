@@ -6,16 +6,21 @@ const {userModal} = require('../modals/user');
 module.exports = function(passport){
     
     passport.serializeUser((user, done) =>{
-        console.log('working 22')
-        done(null, user.id)
+        console.log('working 22', user._id)
+        return done(null, user.id)
     });
     
     passport.deserializeUser(function(id, done){
         console.log('working 66666666666666')
         userModal.findById(id, (err, user) => {
-            return done(err, user)
+            if(err){
+                done(err)
+            } else{
+                console.log(user)
+                return done(null, user)
+            }
         })
-    })
+    });
     
     // Google strategy
     passport.use(
@@ -57,7 +62,6 @@ module.exports = function(passport){
             return cb(null, profile)
         })
     )
-    
     
     
 }

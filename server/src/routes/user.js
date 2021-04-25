@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/profile', (req, res) => {
-    console.log(req.isAuthenticated())
+    console.log(req.user)
     if(req.user){
         return res.status(200).json({
             success: true, 

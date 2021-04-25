@@ -8,10 +8,12 @@ router.get('/google', passport.authenticate('google', { scope: ['profile']}))
 
 // callback route for google
 router.get('/google/callback', 
-    passport.authenticate('google', { failureRedirect: `${process.env.USER_CLIENT_BASE_URL}/auth`, session: true}), 
-    (req, res) => {
-        res.redirect(`${process.env.USER_CLIENT_BASE_URL}/home`)
-})
+    passport.authenticate('google', {
+        successRedirect: `http://localhost:3000/auth`,
+        failureRedirect: `http://localhost:3000/auth`,
+        session: true
+    })
+)
 
 
 // auth route for github
@@ -21,7 +23,13 @@ router.get('/github', passport.authenticate('github', { scope: ['profile']}))
 router.get('/github/callback', 
     passport.authenticate('github', {failureRedirect: `${process.env.USER_CLIENT_BASE_URL}/auth`, session: true}),
     (req, res) => {
-    res.redirect(`${process.env.USER_CLIENT_BASE_URL}/home`)
+    req.logIn(req.user, (err) => {
+        if(err){
+            console.log(err)
+        } else{
+            return res.redirect(`${process.env.USER_CLIENT_BASE_URL}/home`)
+        }
+    })
 })
 
 module.exports = router
