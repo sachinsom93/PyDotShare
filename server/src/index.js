@@ -5,7 +5,6 @@ const passport = require('passport');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const app = express();
 
 
@@ -20,12 +19,6 @@ if(process.env.NODE_ENV == 'development'){
 
 // PORT 
 const PORT = process.env.PORT || 8000;
-
-
-// Cors
-app.use(cors({
-    origin: 'http://localhost:3000'
-}))
 
 
 // BodyParser middlewares
@@ -56,8 +49,8 @@ mongoose.connect(process.env.MONGO_URI, mongoOPtions, (err) => {
 
 
 // routes
-app.use('/user', userRoute)
 app.use('/auth', authRoute)
+app.use('/user', userRoute)
 
 
 // App listening
