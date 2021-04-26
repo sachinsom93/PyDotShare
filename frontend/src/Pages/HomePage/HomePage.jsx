@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { getCookie } from '../../utils/getCookie';
 import styles from './HomePage.module.css';
+import {useSelector, useDispatch} from 'react-redux';
+import {setUser} from '../../store/actions/user';
 
 function HomePage() {
 
-    const [user, setUser] = useState({})
-
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
     useEffect(() => {
         async function fetchData() {
             const res = await fetch('/user/profile', {
@@ -18,8 +20,8 @@ function HomePage() {
             })
             if(res.ok){
                 const jsonRes = await res.json()
-                console.log(jsonRes)
-                setUser(jsonRes)
+                dispatch(setUser(jsonRes))
+                console.log(state)
             } else{
                 console.log('HTTP-Error: ', res.status)
             }
@@ -29,7 +31,7 @@ function HomePage() {
 
     return (
         <div className={styles.HomePage}>
-            {user.name}
+            {state.user && state.user.name}
         </div>
     )
 }

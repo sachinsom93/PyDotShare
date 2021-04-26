@@ -1,16 +1,20 @@
 import {SET_USER} from '../types/user';
 
 const initialState = {
-    user: {},
+    user: null,
     darkTheme: false,
     showMenu: false
 }
 
 
-export const userReducer = (state=initialState, {type, user}) => {
+export const userReducer = (state=initialState, {type, payload}) => {
     switch (type) {
         case SET_USER:
-            return [...state, user]
+            console.log(payload, 'from reducer again', typeof(payload))
+            return {
+                ...state,
+                user: payload,
+            }
         default:
             return state;
     }
