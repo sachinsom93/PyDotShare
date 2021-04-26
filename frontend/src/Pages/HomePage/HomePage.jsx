@@ -18,17 +18,18 @@ function HomePage() {
             })
             if(res.ok){
                 const jsonRes = await res.json()
+                console.log(jsonRes)
                 setUser(jsonRes)
             } else{
                 console.log('HTTP-Error: ', res.status)
             }
         }
         fetchData()
-    }, [user]) 
+    }, []) 
 
     return (
         <div className={styles.HomePage}>
-            
+            {user.name}
         </div>
     )
 }

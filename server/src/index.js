@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false}))
 app.use(passport.initialize());
 require('./services/jwtStrategy');
 require('./services/googleStrategy');
-
+require('./services/githubStrategy');
 
 // connect to mongo
 const mongoOPtions = {

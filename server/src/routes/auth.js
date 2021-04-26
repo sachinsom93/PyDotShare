@@ -22,11 +22,40 @@ router.get(
         session: false
     }),
     (req, res) => {
-        console.log(clientUrl)
         const token = req.user.generateJWT()
         res.cookie('x-auth-cookie', token)
         res.redirect('http://localhost:3000/auth')
     },
 )
 
+// Github auth
+router.get('/github',
+    passport.authenticate('github')
+)
+
+// Github auth callback
+// Google auth callback
+router.get(
+    '/github/callback',
+    passport.authenticate('github', {
+        failureRedirect: '/',
+        session: false
+    }),
+    (req, res) => {
+        const token = req.user.generateJWT()
+        res.cookie('x-auth-cookie', token)
+        res.redirect('http://localhost:3000/auth')
+    },
+)
+
+
+router.get('/logout', (req, res) => {
+    if(req.user){
+        req.logout()
+    }
+    res.json({
+        success: true,
+        msg: 'user logout'
+    })
+})
 module.exports = router
