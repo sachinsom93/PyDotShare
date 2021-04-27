@@ -1,35 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import { getCookie } from '../../utils/getCookie';
+import React, {useEffect} from 'react';
 import styles from './HomePage.module.css';
+import {fetchUser} from '../../store/actions/auth';
+import { useSelector,useDispatch } from 'react-redux';
+
+
 
 function HomePage() {
 
-    const [user, setUser] = useState({})
-
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
     useEffect(() => {
-        async function fetchData() {
-            const res = await fetch('/user/profile', {
-                headers: {
-                    method: 'GET',
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json',
-                    'Authorization': 'Bearer '+ getCookie('x-auth-cookie')
-                }
-            })
-            if(res.ok){
-                const jsonRes = await res.json()
-                console.log(jsonRes)
-                setUser(jsonRes)
-            } else{
-                console.log('HTTP-Error: ', res.status)
-            }
-        }
-        fetchData()
-    }, []) 
+        dispatch(fetchUser())
+    }, [dispatch]) 
 
     return (
-        <div className={styles.HomePage}>
-            {user.name}
+        <div className={styles.container}>
+            {(state.isLoading) ? (<h1>wait</h1>) : 
+            (state.user) && (
+                <div>
+                    <img src={state.user.avatar} alt="avatar"/>
+                    <h1>Name:-{state.user.name}</h1>
+                    <h1>username:-{state.user.username}</h1>
+                    <h1>email:- {state.user.email}</h1>
+                    <h1>provider:-{state.user.provider}</h1>
+                </div>
+            )}
         </div>
     )
 }
