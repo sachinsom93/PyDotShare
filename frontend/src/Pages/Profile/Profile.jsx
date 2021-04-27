@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import styles from './Profile.module.css';
 import {fetchUser} from '../../store/actions/auth';
 import { useSelector,useDispatch } from 'react-redux';
+import Loader from '../../Partials/Loader/Loader';
 
 
 
@@ -15,7 +16,7 @@ function Profile() {
 
     return (
         <div className={styles.container}>
-            {(state.auth && state.auth.isLoading) ? (<h1>wait</h1>) : 
+            {(state.auth && state.auth.isLoading) ? (<Loader />) : 
             (state.auth && state.auth.user) ? (
                 <div>
                     <img src={state.auth.user.avatar} alt="avatar"/>

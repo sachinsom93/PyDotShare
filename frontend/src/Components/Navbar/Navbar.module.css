@@ -1,12 +1,11 @@
 .container{
     width: 100vw;
     height: 10vh;
-    padding: 0;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5em 0 5em;
+    padding: 0 5em 0 1em;
     position: fixed;
     margin-bottom: 10vh;
     background-color: rgba(200, 200,200 ,0.1);
@@ -14,6 +13,10 @@
     box-shadow: 10px 10px 10px rgba(45, 5, 68, 0.0.3);
 }
 
+.logo{
+    width: 30%;
+    border: 1px solid black;
+}
 .menuIcon{
     width: 25px;
     height: 25px;
@@ -67,7 +70,28 @@
     
 }
 /* Media quries */
-@media screen and (min-width : 720px){
+
+@media  screen and (min-width: 476px) {
+    .container{
+        padding: 0 5em 0 3em;
+    }
+    .menuIcon{
+        width: 50px;
+        height: 50px;
+        padding: .7em;
+        box-sizing: border-box;
+    }
+    .menuIconDots{
+        width: 5px;
+        height: 5px;
+    }
+}
+
+
+@media screen and (min-width : 746px){
+    .container{
+        padding: 0 12em 0 5em;
+    }
     .menuIcon{
         display: none;
     }
@@ -78,16 +102,17 @@
         display: flex;
     }
 }
-
-@media  screen and (min-width: 476px) {
-    .menuIcon{
-        width: 50px;
-        height: 50px;
-        padding: .7em;
-        box-sizing: border-box;
+@media screen and (min-width : 1020px){
+    .container{
+        padding: 0 12em 0 10em;
     }
-    .menuIconDots{
-        width: 5px;
-        height: 5px;
+    .menuIcon{
+        display: none;
+    }
+    .navItems{
+        display: flex;
+    }
+    .navItem{
+        display: flex;
     }
 }

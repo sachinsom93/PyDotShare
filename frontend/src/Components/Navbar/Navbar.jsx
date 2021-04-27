@@ -6,6 +6,7 @@ import {Call, Home, Person, Add} from '@material-ui/icons';
 import {useSelector} from 'react-redux';
 import {toggleMenuDots} from '../../store/actions/menuDots';
 import {useDispatch} from 'react-redux';
+import Logo from '../../Partials/Logo/Logo';
 function Navbar() {
 
     // state variables
@@ -24,6 +25,7 @@ function Navbar() {
 
     return (
         <div className={styles.container}>
+            <Logo className={styles.logo}/>
             <div className={styles.menuIcon} onClick={handleClick}>
                 <div className={styles.menuIconDots}></div>
                 <div className={styles.menuIconDots}></div>
