@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import LoginPage from './Pages/LoginPage/LoginPage';
@@ -6,9 +6,16 @@ import HomePage from './Pages/HomePage/HomePage';
 import Contact from './Pages/Contact/Contact';
 import Profile from './Pages/Profile/Profile';
 import Footer from './Components/Footer/Footer';
-
+import {useDispatch} from 'react-redux';
+import {fetchUser} from './store/actions/auth';
 
 function App() {
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(fetchUser())
+  }, [dispatch])
+
   return (
     <BrowserRouter >
       <Navbar />

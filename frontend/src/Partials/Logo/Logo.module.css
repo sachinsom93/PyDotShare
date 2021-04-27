@@ -1,0 +1,10 @@
+.container > h1{
+    font-size: 1.8rem;
+    color: black;
+}
+
+@media screen and (min-width: 476px){
+    .container > h1{
+        font-size: 1.4rem;
+    } 
+}
