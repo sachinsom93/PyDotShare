@@ -5,6 +5,7 @@ import {
 } from '../types/auth';
 
 import {getCookie} from '../../utils/getCookie';
+import {setAlert} from './alert';
 
 export const fetchUser = () => async (dispatch, getState) => {
     if(!(getState() && getState().auth && getState().auth.user)){
@@ -21,13 +22,16 @@ export const fetchUser = () => async (dispatch, getState) => {
             try{
                 const jsonResponse = await response.json()
                 dispatch({type: FETCH_USER_SUCCESS, payload: jsonResponse.user})
+                dispatch(setAlert(`welcome! ${jsonResponse.user.username}.`, 'success'))
             }
             catch(error){
                 dispatch({type: FETCH_USER_ERROR, payload: 'something went wrong.'})
+                dispatch(setAlert('something went wrong', 'danger'))
             }
         }
         catch(error){
             dispatch({type: FETCH_USER_ERROR, payload: 'something went wrong'})
+            dispatch(setAlert('something went wrong', 'danger'))
         }
     }
 }
