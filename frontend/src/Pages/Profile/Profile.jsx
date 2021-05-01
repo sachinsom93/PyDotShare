@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import Loader from '../../Partials/Loader/Loader';
 import { Redirect } from 'react-router';
 import ProfileHeader from '../../Components/ProfileHeader/ProfileHeader';
+import ProfileMiddle from '../../Components/ProfileMiddle/ProfileMiddle';
 
 
 
@@ -24,13 +25,19 @@ function Profile() {
                     <div className={styles.container}>
                         {
                             (isLoading) ? (<Loader />) : (
-                                <ProfileHeader 
-                                    name={user.name}
-                                    username={user.username}
-                                    avatar={user.avatar}
-                                    email={user.email}
-                                    provider={user.provider}
-                                />
+                                <React.Fragment>
+                                    <ProfileHeader 
+                                        name={user.name}
+                                        username={user.username}
+                                        avatar={user.avatar}
+                                        email={user.email}
+                                        provider={user.provider}
+                                    />
+                                    <ProfileMiddle 
+                                        followers={10}
+                                        following={20}
+                                    />
+                                </React.Fragment>
                             )
                         }
                     </div>
