@@ -4,6 +4,7 @@ import {fetchUser} from '../../store/actions/auth';
 import { useSelector,useDispatch } from 'react-redux';
 import Loader from '../../Partials/Loader/Loader';
 import { Redirect } from 'react-router';
+import ProfileHeader from '../../Components/ProfileHeader/ProfileHeader';
 
 
 
@@ -23,14 +24,13 @@ function Profile() {
                     <div className={styles.container}>
                         {
                             (isLoading) ? (<Loader />) : (
-                                <div>
-                                    <img src={user.avatar} alt={user.username}/>
-                                    <h3>{user.username}</h3>
-                                    <h3>{user.name}</h3>
-                                    <h3>{user.email}</h3>
-                                    <h3>{user.createdAt}</h3>
-                                    <h3>{user.provider}</h3>
-                                </div>
+                                <ProfileHeader 
+                                    name={user.name}
+                                    username={user.username}
+                                    avatar={user.avatar}
+                                    email={user.email}
+                                    provider={user.provider}
+                                />
                             )
                         }
                     </div>

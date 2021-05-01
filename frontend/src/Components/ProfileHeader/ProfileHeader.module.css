@@ -1,0 +1,46 @@
+.container{
+    width: 100%;
+    padding: 2em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f9f9f9;
+}
+.avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1em solid rgba(200, 200, 200, .4);
+    margin: 0;
+}
+.name{
+    font-size: 1.4em;
+    font-weight: bolder;
+    color: gray;
+    margin: 5px 0 0 0;
+}
+.username, .email{
+    font-weight: bold;
+    font-size: .8rem;
+    color: #a0a0a0;
+}
+.links{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0 0 0;
+}
+.linkItem{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 200, 200, .8);
+    color: gray;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

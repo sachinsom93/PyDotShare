@@ -12,8 +12,13 @@ function Alert() {
             {
             alerts.map(alert => {
                 return (
-                    <div className={styles.container}>
-                        <AlertBox msg={alert.msg} type={alerts.type} duration={alerts.duration}/>
+                    <div className={styles.container} key={alert.id}>
+                        <AlertBox
+                            key={alert.id} 
+                            msg={alert.msg} 
+                            type={alert.type} 
+                            duration={alert.duration}
+                        />
                     </div>
                 )
             })
