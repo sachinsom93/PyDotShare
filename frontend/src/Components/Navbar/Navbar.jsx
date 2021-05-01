@@ -50,17 +50,18 @@ function Navbar() {
             }
             <div className={styles.navItems}>
                 <Link to='/home' className={styles.navItem}>Home</Link>
-                <Link to='/profile' className={styles.navItem}>Profile</Link>
                 <Link to='/contact' className={styles.navItem}>Contact</Link>
                 {
                     (state.auth.isLoading) ? (
                         <span>Load...</span>
                     ) : (state.auth && state.auth.user) ? (
-                        <img
-                            className={styles.avatar} 
-                            src={state.auth.user.avatar} 
-                            alt={state.auth.user.name} 
-                        />
+                        <Link to='/profile'>
+                            <img
+                                className={styles.avatar} 
+                                src={state.auth.user.avatar} 
+                                alt={state.auth.user.name} 
+                            />
+                        </Link>
                     ) : (
                         <Link to='/auth' className={styles.navItem}>Login</Link>
                     )

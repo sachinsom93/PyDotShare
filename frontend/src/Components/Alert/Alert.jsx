@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import AlertBox from '../../Partials/Alert/AlertBox';
 import styles from './Alert.module.css';
 
 
@@ -12,9 +13,7 @@ function Alert() {
             alerts.map(alert => {
                 return (
                     <div className={styles.container}>
-                        <div className={styles.alert}>
-                            {alert.msg}
-                        </div>
+                        <AlertBox msg={alert.msg} type={alerts.type} duration={alerts.duration}/>
                     </div>
                 )
             })

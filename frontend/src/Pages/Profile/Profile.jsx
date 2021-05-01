@@ -3,35 +3,45 @@ import styles from './Profile.module.css';
 import {fetchUser} from '../../store/actions/auth';
 import { useSelector,useDispatch } from 'react-redux';
 import Loader from '../../Partials/Loader/Loader';
+import { Redirect } from 'react-router';
 
 
 
 function Profile() {
 
-    const state = useSelector(state => state)
+    const user = useSelector(state => state.auth.user)
+    const isLoading = useSelector(state => state.auth.isLoading)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchUser())
     }, [dispatch]) 
 
     return (
-        <div className={styles.container}>
-            {(state.auth && state.auth.isLoading) ? (<Loader />) : 
-            (state.auth && state.auth.user) ? (
-                <div>
-                    <img src={state.auth.user.avatar} alt="avatar"/>
-                    <li>Name:-{state.auth.user.name}</li>
-                    <li>username:-{state.auth.user.username}</li>
-                    <li>email:- {state.auth.user.email}</li>
-                    <li>provider:-{state.auth.user.provider}</li>
-                </div>
-            ): (
-                <div>
-                    <h1>{state.auth.error}</h1>
-                </div>
-            )}
+        <div>
+            {
+                (user) ? (
+                    <div className={styles.container}>
+                        {
+                            (isLoading) ? (<Loader />) : (
+                                <div>
+                                    <img src={user.avatar} alt={user.username}/>
+                                    <h3>{user.username}</h3>
+                                    <h3>{user.name}</h3>
+                                    <h3>{user.email}</h3>
+                                    <h3>{user.createdAt}</h3>
+                                    <h3>{user.provider}</h3>
+                                </div>
+                            )
+                        }
+                    </div>
+                ) : (
+                    <Redirect to='/auth' />
+                )
+            }
         </div>
     )
 }
 
 export default Profile
+
+
