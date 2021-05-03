@@ -6,6 +6,8 @@ import Loader from '../../Partials/Loader/Loader';
 import { Redirect } from 'react-router';
 import ProfileHeader from '../../Components/ProfileHeader/ProfileHeader';
 import ProfileMiddle from '../../Components/ProfileMiddle/ProfileMiddle';
+import ProfileNavbar from '../../Components/ProfileNavbar/ProfileNavbar';
+import ProfileMain from '../../Components/ProfileMain/ProfileMain';
 
 
 
@@ -37,6 +39,8 @@ function Profile() {
                                         followers={10}
                                         following={20}
                                     />
+                                    <ProfileNavbar />
+                                    <ProfileMain />
                                 </React.Fragment>
                             )
                         }

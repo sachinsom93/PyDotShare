@@ -7,7 +7,7 @@ import {
     REMOVE_ALERT
 } from '../types/alert';
 
-export const setAlert = (msg, type = 'danger', duration = 3000) => (dispatch, getState) => {
+export const setAlert = (msg, type = 'danger', duration = 5000) => (dispatch, getState) => {
     const id = uuid();
     dispatch({type: SET_ALERT, payload: {id, msg, type, duration}})
     setTimeout(() => {

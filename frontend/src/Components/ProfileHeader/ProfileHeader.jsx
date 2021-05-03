@@ -5,11 +5,13 @@ function ProfileHeader({name, username, avatar, provider, email}) {
     username = `@${username}`
     return (
         <div className={styles.container}>
-            <img
-                className={styles.avatar} 
-                src={avatar} 
-                alt={username}
-            />
+            <div className={styles.avatar}>
+                <img
+                    className={styles.avatarImg} 
+                    src={avatar} 
+                    alt={username}
+                />
+            </div>
             <span className={styles.name}>
                 {name}
             </span>

@@ -9,9 +9,10 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-    background-color: rgba(200, 200,200 ,0.1);
-    backdrop-filter: blur(30px);
+    background-color: rgba(200, 200, 200, 0.2);
+    backdrop-filter: blur(50px);
     box-shadow: 10px 10px 10px rgba(45, 5, 68, 0.0.3);
+    z-index: 999;
 }
 
 .logo{

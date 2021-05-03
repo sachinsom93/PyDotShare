@@ -14,7 +14,7 @@ function Alert() {
                 return (
                     <div className={styles.container} key={alert.id}>
                         <AlertBox
-                            key={alert.id} 
+                            alertId={alert.id} 
                             msg={alert.msg} 
                             type={alert.type} 
                             duration={alert.duration}
