@@ -10,7 +10,6 @@ import ProfileNavbar from '../../Components/ProfileNavbar/ProfileNavbar';
 import ProfileMain from '../../Components/ProfileMain/ProfileMain';
 
 
-
 function Profile() {
 
     const user = useSelector(state => state.auth.user)

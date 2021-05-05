@@ -1,27 +1,43 @@
 import React from 'react'
 import styles from './ProfileNavbar.module.css';
-import {NavLink} from 'react-router-dom';
+import {
+    notebooks,
+    recent_notebooks,
+    liked_notebooks,
+    saved_notebooks
+} from '../../store/actions/profileNavbar';
+import {useDispatch, useSelector} from 'react-redux';
 
 function ProfileNavbar() {
+    const dispatch = useDispatch()
+    const profileNavOption = useSelector(store => store.profileNavOption)
     return (
         <div className={styles.container}>
             <nav className={styles.navbar}>
-                <NavLink
-                    to='/recent'
+                <span 
                     className={styles.navItems}
-                >Recents</NavLink>
-                <NavLink 
-                    to='/notebooks'
+                    onClick={() => dispatch(recent_notebooks())}
+                    style={{borderBottom: profileNavOption === "recent" ? "2px solid black": 0}}
+                >Recents</span>
+
+                <span 
                     className={styles.navItems}
-                >Notebooks</NavLink>
-                <NavLink 
-                    to='/liked-notebooks'
+                    onClick={() => dispatch(notebooks())}
+                    style={{borderBottom: profileNavOption === "notebooks" ? "2px solid black": 0}}
+                >Notebooks</span>
+
+                <span 
                     className={styles.navItems}
-                >Liked</NavLink>
-                <NavLink 
-                    to='/saved-notebooks'
+                    onClick={() => dispatch(liked_notebooks())}
+                    style={{borderBottom: profileNavOption === "liked" ? "2px solid black": 0}}
+                >Liked</span>
+
+                <span  
                     className={styles.navItems}
-                >Saved</NavLink>
+                    onClick={() => dispatch(saved_notebooks())}
+                    style={{borderBottom: profileNavOption === "saved" ? "2px solid black": 0}}
+                >saved</span>
+
             </nav>
         </div>
     )
