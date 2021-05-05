@@ -6,7 +6,7 @@ const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
 const mongoose = require('mongoose');
 const app = express();
-
+// const { getUsers } = require('./config/sqlite_async');
 
 // configure ENV
 dotenv.config()
@@ -39,6 +39,11 @@ const mongoOPtions = {
     useCreateIndex: true,
     useFindAndModify: true
 }
+
+// configuring sqlite db
+// require('./config/sqlite.db')
+
+// configuring mongo db
 mongoose.connect(process.env.MONGO_URI, mongoOPtions, (err) => {
     if(err){
         console.log(err)
