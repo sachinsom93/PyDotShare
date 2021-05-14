@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './AlertBox.module.css';
 import {Clear} from  '@material-ui/icons';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {REMOVE_ALERT} from '../../store/types/alert';
 
 function AlertBox({alertId, msg, type, duration}) {
@@ -9,8 +9,10 @@ function AlertBox({alertId, msg, type, duration}) {
         backgroundColor: (type === 'success') ? 'green' : 'red' 
     }
     const dispatch = useDispatch()
+    const alerts = useSelector(state => state.alerts)
     const handleClose = () => {
-        dispatch({type: REMOVE_ALERT, payload: alertId})
+        const rAlert = alerts.filter(alert => alert.id === alertId)
+        dispatch({type: REMOVE_ALERT, payload: rAlert[0].id})
     }
     return (
         <div className={styles.container} style={backgroundColor}>

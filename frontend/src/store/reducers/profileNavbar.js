@@ -5,7 +5,7 @@ import {
     SAVED_NOTEBOOKS
 } from '../types/profileNavbar';
 
-const initialState = "";
+const initialState = 'recent';
 
 const profileNavbar = (state=initialState, {type, payload}) => {
     switch (type) {
