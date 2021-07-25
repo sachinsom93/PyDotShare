@@ -17,7 +17,7 @@ if(process.env.NODE_ENV == 'development'){
     app.use(morgan('dev'))
 }
 
-// PORT 
+// PORT
 const PORT = process.env.PORT || 8000;
 
 

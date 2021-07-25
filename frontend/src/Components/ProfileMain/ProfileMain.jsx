@@ -15,11 +15,31 @@ function ProfileMain() {
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quo dicta architecto eum dignissimos magnam officia. Mollitia quibusdam excepturi laudantium possimus odio consectetur ad beatae optio earum explicabo, animi ut?`
     if(profileNavOption === 'saved'){
         return (
             <div className={styles.container}>
-                <Notebooks content={temp}/>                
+                <Notebooks content={temp}/>
             </div>
         )
     } else if(profileNavOption === 'notebooks'){

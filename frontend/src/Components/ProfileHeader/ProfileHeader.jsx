@@ -7,8 +7,8 @@ function ProfileHeader({name, username, avatar, provider, email}) {
         <div className={styles.container}>
             <div className={styles.avatar}>
                 <img
-                    className={styles.avatarImg} 
-                    src={avatar} 
+                    className={styles.avatarImg}
+                    src={avatar}
                     alt={username}
                 />
             </div>

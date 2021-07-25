@@ -11,7 +11,7 @@ const githubStrategy = new Strategy(
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
         callbackURL: `${serverUrl}${process.env.GITHUB_CALLBACK_URL}`,
         proxy: true,
-    }, 
+    },
     async (accessToken, refreshToken, profile, done) => {
         try {
             // Email will be primary key
